@@ -1,0 +1,175 @@
+:root {
+    --primary-color: #3A3F44;
+    --secondary-color: #505860;
+    --accent-color: #1F77FF;
+    --background-color: #1E1E1E;
+    --card-background: rgba(34, 34, 34, 0.95);
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --text-color: #CCCCCC;
+    --link-color: #4D9CFF;
+}
+
+/* Global Styles */
+body {
+    background: linear-gradient(120deg, #2B2B2B, #121212);
+    animation: gradient 6s ease infinite;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Navigation */
+.navbar {
+    transition: all 0.3s ease;
+    padding: 1rem 2rem;
+    background: rgba(40, 40, 40, 0.95) !important;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.navbar-brand:hover {
+    transform: translateY(-2px);
+    color: var(--accent-color);
+}
+
+.nav-link {
+    position: relative;
+    padding: 0.5rem 1rem !important;
+    margin: 0 0.2rem;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    transform: translateY(-2px);
+    color: var(--link-color);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: var(--link-color);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Container Styles */
+.container {
+    background: var(--card-background);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(4px);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    transition: transform 0.3s ease;
+}
+
+/* Card Styles */
+.card {
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    background: var(--card-background);
+    border: none;
+    box-shadow: 0 5px 15px var(--shadow-color);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px var(--shadow-color);
+}
+
+.card-image {
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    filter: brightness(0.8);
+}
+
+.card:hover .card-image {
+    transform: scale(1.05);
+    filter: brightness(1);
+}
+
+/* Form Styles */
+.create-listing-container .form-control {
+    border-radius: 10px;
+    padding: 12px;
+    border: 2px solid #444;
+    transition: all 0.3s ease;
+    background: rgba(50, 50, 50, 0.9);
+    color: var(--text-color);
+}
+
+.create-listing-container .form-control:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 0.2rem rgba(31, 119, 255, 0.25);
+}
+
+/* Button Styles */
+.btn-primary {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    box-shadow: 0 4px 15px rgba(58, 63, 68, 0.3);
+    color: var(--text-color);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(58, 63, 68, 0.4);
+}
+
+/* Footer */
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: rgba(40, 40, 40, 0.95);
+    backdrop-filter: blur(10px);
+    color: var(--text-color);
+    padding: 1rem 0;
+    text-align: center;
+    transition: all 0.3s ease;
+    transform: translateY(100%);
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.footer.visible {
+    transform: translateY(0);
+}
+
+.footer strong {
+    color: var(--accent-color);
+}
